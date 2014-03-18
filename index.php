@@ -1,6 +1,3 @@
-<?php
-?>
-
 <html>
 	<head>
 		<?php
@@ -11,13 +8,21 @@
 	</head>
 	<body>
 		<div class="body">
+		
+		
 			<div class="main">
-				<div class="mainwell">
-					<div class="jumbotron">
-						temp, lol
-					</div>
+				<div class="well">
+					
+					
+					
+					
+					
+					
+					
 				</div>
 			</div>
+			
+			
 		</div>
 	</body>
 </html>

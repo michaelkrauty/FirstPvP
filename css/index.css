@@ -12,13 +12,10 @@ body{
 .center{
 	text-align: center;
 }
-.mainwell{
-	width: 100%;
-	height: 100%
-}
 .main{
 	align: center;
 	text-align: center;
-	max-width: 90%;
 	max-height: 90%;
+	margin-left: 5%;
+	margin-right: 5%;
 }
