@@ -1,0 +1,21 @@
+@CHARSET "ISO-8859-1";
+body{
+	padding-top: 40px;
+	padding-bottom: 40px;
+	background-color: #eee;
+	background-image:url('../img/bg.png');
+	background-repeat: no-repeat;
+	background-attachment:fixed;
+	background-position:bottom;
+	background-size: cover;
+}
+.center{
+	text-align: center;
+}
+.main{
+	align: center;
+	text-align: center;
+	max-height: 90%;
+	margin-left: 5%;
+	margin-right: 5%;
+}
