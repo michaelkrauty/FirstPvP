@@ -13,7 +13,7 @@
 			<div class="main">
 				<div class="well">
 					
-					
+					<a href="shop.php">SHOP</a>
 					
 					
 					
