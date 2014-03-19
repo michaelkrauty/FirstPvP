@@ -11,7 +11,8 @@
       <ul class='nav navbar-nav'>
       	<?php echo "<li";if($pageName == "index"){echo" class='active'";}echo">";echo"<a href='index.php' title='Home'>Home</a></li>";?>
         <?php echo "<li";if($pageName == "shop"){echo" class='active'";}echo">";echo"<a href='shop.php' title='Shop'>Shop</a></li>";?>
-        <?php echo "<li";if($pageName == "wiki"){echo" class='active'";}echo">";echo"<a href='http://google.com' title='Wiki'>Wiki<br></a></li>";?>
+        <?php echo "<li";if($pageName == "wiki"){echo" class='active'";}echo">";echo"<a href='wiki' title='Wiki'>Wiki<br></a></li>";?>
+        <?php echo "<li";if($pageName == "map"){echo" class='active'";}echo">";echo"<a href='http://firstpvp.dominationvps.com:8123' title='Map'>Map<br></a></li>";?>
      </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
