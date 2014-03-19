@@ -5,7 +5,7 @@
       <span class='icon-bar'></span>
       <span class='icon-bar'></span>
       <span class='icon-bar'></span>
-      <a class='navbar-brand' href='index.php';  "vertical-align:middle";> FirstPvP </a>
+      <a class='navbar-brand' href='index.php';"vertical-align:middle";> FirstPvP </a>
     </div>
     <div class='navbar-collapse'>
       <ul class='nav navbar-nav'>

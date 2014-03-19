@@ -20,7 +20,8 @@
 					<div class="col-xs-6 col-md-2">
 						<a class="thumbnail">
 							<p>Building Blocks</p>
-							<img src="textures/blocks/brick.png" height="64" width="64"/>
+							<?php include_once "inc/image.php";?>
+							<img src="<?php echo stretch('textures/blocks/brick.png', 64, 64);?>"/>
 						</a>
 					</div>
 					<div class="col-xs-6 col-md-2">
