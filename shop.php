@@ -3,6 +3,7 @@
 		<?php
 			$title = "FirstPvP Shop";
 			$pageName = "shop";
+			$playerName = "mi16";
 			include_once "inc/head.php";
 		?>
 	</head>
