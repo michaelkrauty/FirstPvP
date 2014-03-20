@@ -1,14 +1,14 @@
 <?php
 	include_once "inc/config.php";
-	include_once "inc/functions.php";
 	include_once "inc/db_connect.php";
+	include_once "inc/functions.php";
 	include_once "inc/register.php";
 	
 	sec_session_start();
-	if(login_check($mysqli)){
-		$logged = "in";
-	}else{
+	if(!login_check()){
 		$logged = "out";
+	}else{
+		$logged = "in";
 	}
 ?>
 
@@ -22,6 +22,11 @@
 		?>
 	</head>
 	<body>
+		<?php
+			if(isset($_GET["err"])){
+				echo "ERROR: ".$_GET["err"];
+			}
+		?>
 		<form action="<?php echo esc_url($_SERVER['PHP_SELF']); ?>" method="post">
 			Minecraft Username:
 			<br><input type="text" name="username" class="form-control" placeholder="Minecraft Username" required autofocus>

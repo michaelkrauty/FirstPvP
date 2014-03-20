@@ -7,7 +7,7 @@
  *
  * DESCRIPTION
  *
- * Configurations and settings for MPCP.
+ * Configurations and settings for FirstPvP.
  *
  * TABLE OF CONTENTS
  *

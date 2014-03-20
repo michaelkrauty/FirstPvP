@@ -1,13 +1,16 @@
 <?php
 	$error_msg = "";
+
+	if($_POST["password"] != $_POST["confirmpassword"]){
+		$_GET["err"] = "Password and Password Confirmation do not match!";
+	}
 	
-	if(isset($_POST["username"], $_POST["key"], $_POST["password"])){
+	if(isset($_POST["username"], $_POST["key"], $_POST["password"]) && !isset($_GET["err"])){
 		$username = $_POST["username"];
 		$key = $_POST["key"];
 		$password = $_POST["password"];
 		
-		$prep_stmt = "SELECT id FROM members WHERE username=? LIMIT 1";
-		$stmt = $mysqli->prepare($prep_stmt);
+		$stmt = $mysqli->prepare("SELECT id FROM members WHERE username=? LIMIT 1");
 		
 		if($stmt){
 			$stmt->bind_param("s", $username);
