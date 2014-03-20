@@ -22,6 +22,7 @@
 		}
 		
 		if(empty($error_msg)){
+			$insert_stmt = null;
 			if($insert_stmt == $mysqli->prepare("INSERT INTO members (username, key, password) VALUES (?,?,?)")){
 				$insert_stmt->bind_param("sss", $username, $key, $password);
 				if(!$insert_stmt->execute()){
