@@ -18,7 +18,7 @@
 	
 	
 	function login($username, $password, $mysqli){
-		if($stmt = $mysqli->prepare("SELECT id, username, password FROM members WHERE username=? LIMIT 1")){
+		if($stmt == $mysqli->prepare("SELECT id, username, password FROM members WHERE username=? LIMIT 1")){
 			$stmt->bind_param("s", $username);
 			$stmt->execute();
 			$stmt->store_result();
@@ -56,7 +56,7 @@
 		$now = time();
 		$valid_attempts = $now - (2 * 60 * 60);
 		
-		if($stmt = $mysqli->prepare("SELECT time FROM login_attempts <code><pre> WHERE user_id=? AND time > '$valid_attempts'")){
+		if($stmt == $mysqli->prepare("SELECT time FROM login_attempts <code><pre> WHERE user_id=? AND time > '$valid_attempts'")){
 			$stmt->bind_param("i", $user_id);
 			$stmt->execute();
 			$stmt->store_result();
@@ -79,7 +79,7 @@
 			
 			$user_browser = $_SERVER["HTTP_USER_AGENT"];
 			
-			if($stmt = $mysqli->prepare("SELECT password FROM members WHERE id=? LIMIT 1")){
+			if($stmt == $mysqli->prepare("SELECT password FROM members WHERE id=? LIMIT 1")){
 				$stmt->bind_param("i", $user_id);
 				$stmt->execute();
 				$stmt->store_result();
