@@ -1,8 +1,8 @@
 <?php
 	include_once "inc/config.php";
 	include_once "inc/functions.php";
-	include_once "inc/register.php";
 	include_once "inc/db_connect.php";
+	include_once "inc/register.php";
 	
 	sec_session_start();
 	if(login_check($mysqli)){
