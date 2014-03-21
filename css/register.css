@@ -13,12 +13,18 @@ body{
 	text-align: center;
 }
 
-pagetitle {
+.title{
   font-family: 'Quando', serif;
   font-size: 40px;
 }
-logintitle{
+
+.titletext{
+  text-align: center;
+}
+
+.logintitle{
   font-size: 30px;
+  text-align: center;
 }
 
 .container {

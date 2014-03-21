@@ -16,7 +16,7 @@
         <?php echo "<li";if($pageName == "wiki"){echo" class='active'";}echo">";echo"<a href='wiki' title='Wiki'>Wiki<br></a></li>";?>
         <?php echo "<li";if($pageName == "map"){echo" class='active'";}echo">";echo"<a href='http://firstpvp.dominationvps.com:8123' title='Map'>Map<br></a></li>";?>
      </ul>
-<!--      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
 	  		<a href="" class="dropdown-toggle" data-toggle="dropdown"></span> <?php echo $pageName; ?> <b class="caret"></b></a>
 			<ul class="dropdown-menu">
@@ -27,10 +27,10 @@
             <li><a href="/mpcp/forum/"><span class="glyphicon glyphicon-comment"></span> Forum</a></li>
             <li><a href=""><span class="glyphicon glyphicon-exclamation-sign"></span> Access Log</a></li>
             <li class="divider"></li>
-            <li><a href="/mpcp/includes/logout.php"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
+            <li><a href="logout.php"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
           </ul>
         </li>
       </ul>
--->    </div>
+    </div>
   </div>
 </div>

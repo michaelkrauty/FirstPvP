@@ -1,3 +1,5 @@
+<?php session_start();?>
+<?php if(isset($_SESSION["username"])){?>
 <html>
 	<head>
 		<?php
@@ -91,3 +93,8 @@
 		</div>
 	</body>
 </html>
+<?php }else{
+header("Location: login.php");
+}
+?>
+}?>

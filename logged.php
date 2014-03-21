@@ -1,8 +1,8 @@
+<?php session_start();?>
 <?php
 	include_once "inc/functions.php";
 	
-	sec_session_start();
-	if(login_check($mysqli)){
+	if(login_check()){
 		$logged = "in";
 	}else{
 		$logged = "out";

@@ -1,22 +1,6 @@
 <?php
 	include_once "config.php";
-	include_once "db_connect.php";
-	
-	function sec_session_start(){
-		$session_name = "sec_session_id";
-		$secure = SECURE;
-		$httponly = true;
-		if(ini_set("session.use_only_cookies", 1) === FALSE){
-			header("Location: ../error.php?err=Could not initiate a safe session (ini_set_");
-			exit();
-		}
-		$cookieParams = session_get_cookie_params();
-		session_set_cookie_params($cookieParams["lifetime"], $cookieParams["path"], $cookieParams["domain"], $secure, $httponly);
-		session_name($session_name);
-		session_start();
-		session_regenerate_id();
-	}
-	
+	include_once "db_connect.php";	
 	
 	function login($username, $password = null, $key = null){
 		if($stmt == $mysqli->prepare("SELECT id, username, key, password FROM members WHERE username=? LIMIT 1")){
@@ -48,30 +32,10 @@
 	}
 	
 	function login_check(){
-		$mysqli = new mysqli(HOST, USER, PASSWORD, DATABASE);
-		if(isset($_SESSION["user_id"], $_SESSION["username"], $_SESSION["login_string"])){
-			$user_id = $_SESSION["user_id"];
-			$login_string = $_SESSION["login_string"];
-			$username = $_SESSION["username"];
-			
-			$user_browser = $_SERVER["HTTP_USER_AGENT"];
-			
-			if($stmt == $mysqli->prepare("SELECT password FROM members WHERE id=? LIMIT 1")){
-				$stmt->bind_param("i", $user_id);
-				$stmt->execute();
-				$stmt->store_result();
-				
-				if($stmt->num_rows == 1){
-					$stmt->bind_result($password);
-					$stmt->fetch();
-					if($password == $login_string){
-						return true;
-					}
-				}else{
-					return false;
-				}
-			}else{
-				return false;
+		if(isset($_SESSION["username"], $_SESSION["key"], $_SESSION["password"])){
+			$dbuser = getUser($_SESSION["username"]);
+			if($dbuser["key"] == $_SESSION["key"] && $dbuser["password"] == $_SESSION["password"]){
+				return true;
 			}
 		}else{
 			return false;

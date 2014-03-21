@@ -1,3 +1,10 @@
+<?php session_start();?>
+<?php
+	include_once "inc/db_connect.php";
+	include_once "inc/functions.php";
+	
+	if(login_check()){
+?>
 <html>
 	<head>
 		<?php
@@ -21,3 +28,8 @@
 		</div>
 	</body>
 </html>
+<?php
+	}else{
+		header("Location: login.php");
+	}
+?>
