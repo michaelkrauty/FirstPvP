@@ -1,9 +1,10 @@
+<?php session_start();?>
 <?php
-	session_start();
-	if(isset($_GET["m"])){
-		$username = $_GET["m"];
+	include_once "inc/db_connect.php";
+	include_once "inc/functions.php";
+	
+	if(login_check()){
 ?>
-
 <html>
 	<head>
 		<?php include_once "inc/head.php";?>
@@ -11,11 +12,10 @@
 	<body>
 		<div class="jumbotron">
 			<center>
-				<h1>Welcome to FirstPvP, <?php echo $username;?>!
+				<h1>Welcome to FirstPvP, <?php echo $_SESSION["username"];?>!
 				<br>
-				<a href="login.php">Log in</a>
+				<a href="login.php">Back to the website</a>
 				</h1>
-				<?php echo $_SESSION["username"];?>
 			</center>
 		</div>
 	</body>
@@ -24,6 +24,6 @@
 
 <?php
 	}else{
-		header("Location: index.php");
+		header("Location: login.php");
 	}
 ?>
