@@ -17,19 +17,32 @@
 				<?php echo "<li";if($pageName == "map"){echo" class='active'";}echo">";echo"<a href='http://firstpvp.dominationvps.com:8123' title='Map'>Map<br></a></li>";?>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
+			<?php if(login_check()){?>
+			<?php
+			if(isset($_POST["logout"])){
+				session_destroy();
+				header("Location: index.php");
+			}
+			if(isset($_POST["settings"])){
+				header("Location: settings.php");
+			}
+			?>
 				<li class="dropdown">
-					<a href="" class="dropdown-toggle" data-toggle="dropdown"> <?php echo $pageName; ?> <b class="caret"></b></a>
+					<a href="" class="dropdown-toggle" data-toggle="dropdown"> <?php echo $_SESSION["username"]; ?> <b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="/mpcp/settings/"><span class="glyphicon glyphicon-dashboard"></span> Settings</a></li>
-						<li><a href=""><span class="glyphicon glyphicon-plus-sign"></span> Sub Users</a></li>
-						<li><a href="/mpcp/forum/"><span class="glyphicon glyphicon-question-sign"></span> Support</a></li>
-						<li><a href="/mpcp/knowledgebase/"><span class="glyphicon glyphicon-info-sign"></span> Knowledgebase</a></li>
-						<li><a href="/mpcp/forum/"><span class="glyphicon glyphicon-comment"></span> Forum</a></li>
-						<li><a href=""><span class="glyphicon glyphicon-exclamation-sign"></span> Access Log</a></li>
+						<li style="text-align:center;"><form method="post"><button style="width:90%;margin-top:10px;" name="settings" type="submit" class="btn btn-sm btn-info">Account Settings</button></form></li>
 						<li class="divider"></li>
-						<li><a href="logout.php"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
+						<li style="text-align:center;"><form method="post"><button style="width:90%;" name="logout" type="submit" class="btn btn-sm btn-info">Logout</button></form></li>
 					</ul>
 				</li>
+				<?php }if(!login_check()){?>
+					<?php 
+						if(isset($_POST["login"])){
+							header("Location: login.php");
+						}
+					?>
+					<div style="margin-top:10px;"><form method="post"><button name="login" type="submit" class="btn btn-sm btn-info">Log In</button></form></div>
+				<?php }?>
 			</ul>
 		</div>
 	</div>

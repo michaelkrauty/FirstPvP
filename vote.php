@@ -1,3 +1,8 @@
+<?php session_start();?>
+<?php
+	include_once "inc/db_connect.php";
+	include_once "inc/functions.php";
+?>
 <html>
 	<head>
 		<?php
@@ -27,3 +32,4 @@
 		</div>
 	</body>
 </html>
+<?php include_once "inc/script.php";?>

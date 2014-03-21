@@ -1,5 +1,10 @@
 <?php session_start();?>
-<?php if(isset($_SESSION["username"])){?>
+<?php
+	include_once "inc/db_connect.php";
+	include_once "inc/functions.php";
+	
+	if(login_check()){
+?>
 <html>
 	<head>
 		<?php
@@ -22,8 +27,6 @@
 					<div class="col-xs-6 col-md-2">
 						<a class="thumbnail">
 							<p>Building Blocks</p>
-							<?php include_once "inc/image.php";?>
-							<img src="<?php echo stretch('textures/blocks/brick.png', 64, 64);?>"/>
 						</a>
 					</div>
 					<div class="col-xs-6 col-md-2">
@@ -93,8 +96,8 @@
 		</div>
 	</body>
 </html>
+<?php include_once "inc/script.php";?>
 <?php }else{
 header("Location: login.php");
 }
 ?>
-}?>
