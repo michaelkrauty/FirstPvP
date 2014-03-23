@@ -20,6 +20,8 @@
  * @ Author - Michael Krautkramer
 */
 
+ini_set('display_errors', 'On');
+error_reporting(E_ALL);
 
 
 // 1) Includes
@@ -29,7 +31,7 @@ include_once "config.php";
 //$mysqli = new mysqli(HOST, USER, PASSWORD, DATABASE);
 
 // 3) Create User
-function createUser($username, $key, $password){
+function createUser($username, $email, $key, $password){
 	$mysqli = new mysqli(HOST, USER, PASSWORD, DATABASE);
 	$stmt = $mysqli->prepare("SELECT * FROM members WHERE username=? LIMIT 1");
 	$stmt->bind_param("s", $username);
@@ -44,7 +46,7 @@ function createUser($username, $key, $password){
 	$stmt->bind_param("s", $username);
 	$stmt->execute();
 	$stmt->store_result();
-	$stmt->bind_result($db_id, $db_username, $db_key, $db_password);
+	$stmt->bind_result($db_id, $db_username, $db_email, $db_key, $db_password);
 	$stmt->fetch();
 	
 	if($key != $db_key){
@@ -57,8 +59,8 @@ function createUser($username, $key, $password){
 	}
 	
 	
-	$stmt = $mysqli->prepare("UPDATE members SET `password`=? WHERE username=?");
-	$stmt->bind_param("ss", $password, $username);
+	$stmt = $mysqli->prepare("UPDATE members SET `email`=?, `password`=? WHERE username=?");
+	$stmt->bind_param("sss", $email, $password, $username);
 	$stmt->execute();
 	return "SUCCESS";
 }
@@ -74,15 +76,12 @@ function getUser($username){
 		return "ERROR:USER";
 	}
 	
-	$stmt = $mysqli->prepare("SELECT * FROM members WHERE username=? LIMIT 1");
-	$stmt->bind_param("s", $username);
-	$stmt->execute();
-	$stmt->store_result();
-	$stmt->bind_result($id, $username, $key, $password);
+	$stmt->bind_result($id, $username, $email, $key, $password);
 	$stmt->fetch();
 	$result["id"] = $id;
 	$result["username"] = $username;
 	$result["key"] = $key;
 	$result["password"] = $password;
+	$result["email"] = $email;
 	return $result;
 }

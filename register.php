@@ -20,10 +20,16 @@
 				$key = $_POST["key"];
 				$password = $_POST["password"];
 				$confirmpassword = $_POST["confirmpassword"];
+				if(isset($_POST["email"])){
+					$email = $_POST["email"];
+				}
+				if(!isset($_POST["email"])){
+					$email = "";
+				}
 				
 				if($password == $confirmpassword){
 					
-					$createUser = createUser($username, $key, $password);
+					$createUser = createUser($username, $email, $key, $password);
 					
 					if($createUser != "ERROR:USER"){
 					
@@ -36,6 +42,7 @@
 									$_SESSION["username"] = $username;
 									$_SESSION["key"] = $key;
 									$_SESSION["password"] = $password;
+									$_SESSION["email"] = $email;
 									header("Location: register_success.php?m=".$username);
 								}else{
 									//unknown error
@@ -47,7 +54,7 @@
 							}
 						}else{
 							//password is already set
-							$_POST["err"] = "A password has already been set for your account! You can reset your password by clicking \"Reset Password\" on the login page.";
+							$_POST["err"] = "A password has already been set for your account! You can reset your password by clicking \"Forgot Password\" on the login page.";
 						}
 					}else{
 						$_POST["err"] = "That username doesn't exist yet! Have you joined the server before?";
@@ -60,7 +67,7 @@
 		?>
 		<?php
 			if(isset($_POST["err"])){
-				echo "ERROR: ".$_POST["err"];
+				echo "<div style='text-align:center;' class='alert alert-danger'>ERROR: ".$_POST["err"]."</div>";
 			}
 		?>
 	</head>
@@ -72,9 +79,15 @@
 				Register
 			</div>
 			<form action="" method="post">
+				Minecraft Username:
 				<br><input type="text" name="username" class="form-control" placeholder="Minecraft Username" required autofocus>
+				Email (optional):
+				<br><input type="text" name="email" class="form-control" placeholder="Email">
+				Key:<br>(You can get this key by using the "/key" command)
 				<br><input type="text" name="key" class="form-control" placeholder="FirstPvP Key" required>
+				Password:
 				<br><input type="password" name="password" class="form-control" placeholder="Password" required>
+				Confirm Password:
 				<br><input type="password" name="confirmpassword" class="form-control" placeholder="Confirm Password" required>
 				<br><input class="btn btn-lg btn-success btn-block" type="submit" value="Register">
 				<br><input class="btn btn-lg btn-primary btn-block" type="button" value="Back to login" onClick="parent.location='login.php'">

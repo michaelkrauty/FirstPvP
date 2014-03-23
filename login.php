@@ -24,6 +24,7 @@
 					$_SESSION["username"] = $user["username"];
 					$_SESSION["key"] = $user["key"];
 					$_SESSION["password"] = $user["password"];
+					$_SESSION["email"] = $user["email"];
 					header("Location: index.php");
 				}else{
 					//incorrect password
@@ -31,7 +32,7 @@
 				}
 			}else{
 				//user not in DB
-				$_POST["err"] = "Username not found";
+				$_POST["err"] = "Username not found! Have you registered yet?";
 			}
 		}
 	?>
@@ -40,7 +41,7 @@
   <body>
 	<?php
 		if(isset($_POST["err"])){
-			echo "ERROR: ".$_POST["err"];
+			echo "<div style='text-align:center;' class='alert alert-danger'>ERROR: ".$_POST["err"]."</div>";
 		}
 	?>
     	<div class="container">

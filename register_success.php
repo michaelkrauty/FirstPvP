@@ -7,7 +7,11 @@
 ?>
 <html>
 	<head>
-		<?php include_once "inc/head.php";?>
+		<?php
+			$pageName = "register_success";
+			$title = "Registration Successful!";
+			include_once "inc/head.php";
+		?>
 	</head>
 	<body>
 		<div class="jumbotron">

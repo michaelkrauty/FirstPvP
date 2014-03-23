@@ -13,8 +13,9 @@
 				<?php echo "<li";if($pageName == "shop"){echo" class='active'";}echo">";echo"<a href='shop.php' title='Shop'>Shop</a></li>";?>
 				<?php echo "<li";if($pageName == "permissions"){echo" class='active'";}echo">";echo"<a href='permissions.php' title='Permissions'>Permissions Shop</a></li>";?>
 				<?php echo "<li";if($pageName == "vote"){echo" class='active'";}echo">";echo"<a href='vote.php' title='Vote'>Voting</a></li>";?>
-				<?php echo "<li";if($pageName == "wiki"){echo" class='active'";}echo">";echo"<a href='wiki' title='Wiki'>Wiki<br></a></li>";?>
+				<?php echo "<li";if($pageName == "info"){echo" class='active'";}echo">";echo"<a href='info.php' title='Info'>Info<br></a></li>";?>
 				<?php echo "<li";if($pageName == "map"){echo" class='active'";}echo">";echo"<a href='http://firstpvp.dominationvps.com:8123' title='Map'>Map<br></a></li>";?>
+				<?php echo "<li";if($pageName == "stats"){echo" class='active'";}echo">";echo"<a href='stats' title='Stats'>Stats<br></a></li>";?>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 			<?php if(login_check()){?>

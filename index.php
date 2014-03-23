@@ -19,13 +19,14 @@
 			<div class="main">
 				<div class="well">
 					
-					<a href="shop.php">SHOP</a>
-					
-					
+					Welcome to the FirstPvP Website!
+					<br>
+					There isn't much here yet, but more content will be added as time goes on!
 					
 					
 					
 				</div>
+				<a href="http://topg.org/Minecraft"><img src="http://topg.org/image/120314/75603.jpg" alt="minecraft servers"></a>
 			</div>
 			
 			
