@@ -15,12 +15,18 @@
 	</head>
 	<body>
 	<?php include_once "inc/header.php";?>
+		<?php
+			var_dump($_SERVER);
+			if(isset($_GET[""])){
+				//put shit here
+			}
+		?>
 		<div class="body">
-		
-		
 			<div class="main">
 				<div class="well">
-					nothing here yet, move along...
+					
+					
+					
 				</div>
 				
 			</div>

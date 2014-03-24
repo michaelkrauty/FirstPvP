@@ -39,10 +39,12 @@
 								
 								if($createUser == "SUCCESS"){
 									
-									$_SESSION["username"] = $username;
-									$_SESSION["key"] = $key;
-									$_SESSION["password"] = $password;
-									$_SESSION["email"] = $email;
+									$user = getUser($_POST["username"]);
+									$_SESSION["username"] = $user["username"];
+									$_SESSION["key"] = $user["key"];
+									$_SESSION["password"] = $user["password"];
+									$_SESSION["email"] = $user["email"];
+									
 									header("Location: register_success.php?m=".$username);
 								}else{
 									//unknown error

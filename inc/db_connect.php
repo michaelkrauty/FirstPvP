@@ -7,7 +7,7 @@
  *
  * DESCRIPTION
  *
- * MPCP Database Controller.
+ * FirstPvP Database Controller.
  *
  * TABLE OF CONTENTS
  *

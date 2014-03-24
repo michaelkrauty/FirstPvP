@@ -17,7 +17,6 @@
  * @ Copyright (c) FirstPvP
  * @ Version
  * @ Author - Michael Krautkramer
- * @ Author - Daniel Oxenbury (http://Daniel.oxituk.co.uk)
 */
 
 
