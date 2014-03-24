@@ -16,8 +16,18 @@
 	<body>
 	<?php include_once "inc/header.php";?>
 		<?php
-			if(isset($_GET[""])){
-				//put shit here
+			if(isset($_POST["email"]) || isset($_POST["password"])){
+				$updateEmail = $_SESSION["email"];
+				$updatePassword = $_SESSION["password"];
+				if(isset($_POST["email"]) && $_POST["email"] != "" && $_POST["email"] != $_SESSION["email"]){
+					$updateEmail = $_POST["email"];
+					$_SESSION["email"] = $updateEmail;
+				}
+				if(isset($_POST["password"]) && $_POST["password"] != "" && $_POST["password"] != $_SESSION["password"]){
+					$updatePassword = $_POST["password"];
+					$_SESSION["password"] = $updatePassword;
+				}
+				editUser($_SESSION["username"], $updateEmail, $_SESSION["key"], $updatePassword);
 			}
 		?>
 		<div class="body">
@@ -28,16 +38,23 @@
 					</div>
 				</div>
 				<div class="content">
-					<div class="emailcontainer">
-						<div class="well">
-							<h3>Add/Edit Email Address</h3>
+					<form method="post">
+						<div class="emailcontainer">
+							<div class="input-group">
+								<span class="input-group-addon">Email:</span>
+								<input name="email" type="text" class="form-control" placeholder="<?php echo $_SESSION['email'];?>" autofocus />
+							</div>
 						</div>
-					</div>
-					<div class="passwordcontainer">
-						<div class="well">
-							<h3>Edit Password</h3>
+						<div class="passwordcontainer">
+							<div class="input-group">
+								<span class="input-group-addon">Password:</span>
+								<input name="password" type="password" class="form-control" placeholder="<?php for($i = 0; $i < strlen($_SESSION['password']); $i++){echo "*";} ?>" />
+							</div>
 						</div>
-					</div>
+						<div class="submit">
+							<button class="btn btn-lg btn-info" action="submit">Submit Changes</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
