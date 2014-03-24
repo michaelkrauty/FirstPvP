@@ -125,9 +125,9 @@
 	}
 	
 	if(isset($perm[0])){
-		executeCommand("sudo ".$_SESSION["username"]." buyperms buy ".$_SESSION["username"].$perm[0]);
+		executeCommand("sudo ".$_SESSION["username"]." buyperms buy ".$_SESSION["username"]." ".$perm[0]);
 	}
 	if(isset($perm[1])){
-		executeCommand("sudo ".$_SESSION["username"]." buyperms buy ".$_SESSION["username"].$perm[1]);
+		executeCommand("sudo ".$_SESSION["username"]." buyperms buy ".$_SESSION["username"]." ".$perm[1]);
 	}
 ?>
