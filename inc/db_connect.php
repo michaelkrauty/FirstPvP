@@ -85,3 +85,23 @@ function getUser($username){
 	$result["email"] = $email;
 	return $result;
 }
+
+
+function editUser($username, $email, $key, $password){
+	$mysqli = new mysqli(HOST, USER, PASSWORD, DATABASE);
+	$stmt = $mysqli->prepare("SELECT * FROM members WHERE username=? LIMIT 1");
+	$stmt->bind_param("s", $username);
+	$stmt->execute();
+	$stmt->store_result();
+	$stmt->bind_result($db_id, $db_username, $db_email, $db_key, $db_password);
+	$stmt->fetch();
+	if($stmt->num_rows != 1){
+		//user doesn't exist
+		return "ERROR:USER";
+	}
+
+	$stmt = $mysqli->prepare("UPDATE members SET `username`=?, `email`=?, `key`=?, `password`=? WHERE username=?");
+	$stmt->bind_param("sssss", $username, $email, $key, $password, $username);
+	$stmt->execute();
+	return "SUCCESS";
+}

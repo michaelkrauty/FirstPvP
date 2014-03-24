@@ -98,8 +98,9 @@
 		</div>
 	</body>
 </html>
+<?php include_once "inc/script.php";?>
 <?php
-	}else{
-		header("Location: index.php");
-	}
+}else{
+	header("Location: index.php");
+}
 ?>
